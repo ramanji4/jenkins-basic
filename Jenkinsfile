@@ -15,7 +15,10 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'echo This is test'
+                retry(1) {
+                    sh 'echo This is test'
+                    error 'Test failed'
+                }
             }
         }
         stage('Deploy') {
