@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                retry(1) {
+                retry(2) {
                     sh 'echo This is test'
                     error 'Test failed'
                 }
