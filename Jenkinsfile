@@ -17,9 +17,6 @@ pipeline {
 
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
-    environment {
-        DEBUG = 'true'
-    }
     stages {
         stage('Build') {
             steps {
@@ -39,7 +36,7 @@ pipeline {
             //     branch 'production'
             // }
             when {
-                expression { env.GIT.BRANCH == "origin/main"}
+                expression { env.GIT_BRANCH == "origin/main"}
             }
             steps {
                 sh 'echo This is deploy'
