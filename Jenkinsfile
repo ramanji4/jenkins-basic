@@ -36,7 +36,7 @@ pipeline {
             //     branch 'production'
             // }
             when {
-                expression { env.GIT_BRANCH != "origin/main"}
+                expression { env.GIT_BRANCH == "origin/main"}
             }
             steps {
                 sh 'echo This is deploy'
